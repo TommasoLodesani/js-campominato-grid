@@ -37,6 +37,13 @@ if(sceltaUtente ==="facile"){
     for ( let i = 0; i < 81; i++){
         const divMedium = createMyElement();
 
+        divMedium.addEventListener("click",
+
+            function(){
+                this.classList.add("clicked-green");
+            }
+        )
+        
         myGrid.append(divMedium);
     }
     console.log("hai scelto medio");
@@ -51,6 +58,14 @@ if(sceltaUtente ==="facile"){
 
     for ( let i = 0; i < 49; i++){
         const divHard = createMyElement();
+
+        divHard.addEventListener("click",
+
+            function(){
+                this.classList.add("clicked-green");
+            }
+
+        )
 
         myGrid.append(divHard);
     }
