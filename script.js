@@ -26,7 +26,7 @@ if(sceltaUtente ==="facile"){
     }
 
     for ( let i = 0; i < 81; i++){
-        const divEasy = createMyElement();
+        const divMedium = createMyElement();
 
         myGrid.append(divEasy);
     }
@@ -41,7 +41,7 @@ if(sceltaUtente ==="facile"){
     }
 
     for ( let i = 0; i < 49; i++){
-        const divEasy = createMyElement();
+        const divHard = createMyElement();
 
         myGrid.append(divEasy);
     }
