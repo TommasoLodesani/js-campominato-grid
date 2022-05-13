@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.square_easy{
+    flex-basis: calc(100% / 10);
+    height:calc(100% / 10);
+    border: solid 1px black;
+}
+
+.square_medium{
+    flex-basis: calc(100% / 9);
+    height:calc(100% / 9);
+    border: solid 1px black;
+}
+
+.square_hard{
+    flex-basis: calc(100% / 7);
+    height:calc(100% / 7);
+    border: solid 1px black;
+}
+
+.clicked-green{
+    background-color: green;
+}
