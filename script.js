@@ -14,12 +14,21 @@ if(sceltaUtente ==="facile"){
     for ( let i = 0; i < 100; i++){
         const divEasy = createMyElement();
 
+        divEasy.addEventListener("click",
+
+            function(){
+                this.classList.add("clicked-green");
+            }
+        )
+
         myGrid.append(divEasy);
     }
     console.log("hai scelto facile");
+
+
 } else if (sceltaUtente === "medio"){
 
-    const createMyElement = () => {
+    function createMyElement() {
         const node = document.createElement("div");
         node.className = "square_medium";
         return node;
@@ -28,7 +37,7 @@ if(sceltaUtente ==="facile"){
     for ( let i = 0; i < 81; i++){
         const divMedium = createMyElement();
 
-        myGrid.append(divEasy);
+        myGrid.append(divMedium);
     }
     console.log("hai scelto medio");
 
@@ -43,7 +52,7 @@ if(sceltaUtente ==="facile"){
     for ( let i = 0; i < 49; i++){
         const divHard = createMyElement();
 
-        myGrid.append(divEasy);
+        myGrid.append(divHard);
     }
    
     console.log("hai scelto difficile");
