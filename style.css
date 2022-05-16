@@ -12,19 +12,19 @@
     
 }
 
-.square_easy{
+.square_10{
     flex-basis: calc(100% / 10);
     height:calc(100% / 10);
     border: solid 1px black;
 }
 
-.square_medium{
+.square_9{
     flex-basis: calc(100% / 9);
     height:calc(100% / 9);
     border: solid 1px black;
 }
 
-.square_hard{
+.square_7{
     flex-basis: calc(100% / 7);
     height:calc(100% / 7);
     border: solid 1px black;
@@ -32,4 +32,8 @@
 
 .clicked-green{
     background-color: green;
+}
+
+.clicked-red{
+    background-color: red;
 }

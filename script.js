@@ -4,101 +4,112 @@ const myGrid = document.getElementById("grid");
 
 const myButton = document.getElementById("play");
 
-const myButtonReset = document.getElementById("reset");
+const selectLev = document.getElementById("level");
 
-// let sceltaUtente = prompt("Scegli livello");
 
+
+// funzione creazione div
+
+const createMyElement = (classDiv) => {
+    const node = document.createElement("div");
+    node.className = classDiv;
+    return node;
+}
 
 
 myButton.addEventListener("click",
 
     function () {
 
-        let sceltaUtente = document.getElementById("inputText").value;
-        console.log(sceltaUtente);
+        let nCelle, classCelle;
 
+        // svuoto la griglia
+        myGrid.innerHTML = "";
 
+        // prendiamo il valore della select
+        const chooseLevel = parseInt(selectLev.value);
 
-        if (sceltaUtente === "facile") {
+        // settare le varibile a seconda del livello
 
-            const createMyElement = () => {
-                const node = document.createElement("div");
-                node.className = "square_easy";
-                return node;
-            }
+        switch (chooseLevel){
 
-            for (let i = 0; i < 100; i++) {
-                const divEasy = createMyElement();
+            case 0:
+            default:
+            nCelle = 100;
+            classCelle = "square_10";
+            break;
 
-                divEasy.addEventListener("click",
+            case 1:
+            nCelle = 81;
+            classCelle = "square_9";
+            break;
 
-                    function () {
-                        this.classList.add("clicked-green");
-                    }
-                )
+            case 2:
+            nCelle = 49;
+            classCelle = "square_7";
+            break;
 
-                myGrid.append(divEasy);
-            }
-            console.log("hai scelto facile");
-
-
-        } else if (sceltaUtente === "medio") {
-
-            function createMyElement() {
-                const node = document.createElement("div");
-                node.className = "square_medium";
-                return node;
-            }
-
-            for (let i = 0; i < 81; i++) {
-                const divMedium = createMyElement();
-
-                divMedium.addEventListener("click",
-
-                    function () {
-                        this.classList.add("clicked-green");
-                    }
-                )
-
-                myGrid.append(divMedium);
-            }
-            console.log("hai scelto medio");
-
-        } else if (sceltaUtente === "difficile") {
-
-            const createMyElement = () => {
-                const node = document.createElement("div");
-                node.className = "square_hard";
-                return node;
-            }
-
-            for (let i = 0; i < 49; i++) {
-                const divHard = createMyElement();
-
-                divHard.addEventListener("click",
-
-                    function () {
-                        this.classList.add("clicked-green");
-                    }
-
-                )
-
-                myGrid.append(divHard);
-            }
-
-            console.log("hai scelto difficile");
         }
+       
+        const myNewArrRandom = createRandUniqueNumArray(nCelle, 1, nCelle);
+        console.log(myNewArrRandom);
+
+       
+        for (let i = 0; i < myNewArrRandom.length ; i++) {
 
 
+            const divEle = createMyElement(classCelle);
+
+            let arrItem = myNewArrRandom[i];
+
+            divEle.addEventListener("click",
+
+                function () {
+                    divEle.append(arrItem);
+                    if( arrItem % 2 === 0){
+                        this.classList.add("clicked-green");
+                    } else{
+                        this.classList.add("clicked-red");
+                    }
+                }
+            )
+
+            myGrid.append(divEle);
+        }
+        
 
     }
 
 )
 
-myButtonReset.addEventListener("click",
 
-    function () {
-        document.getElementById("inputText").value = "";
+// funzioni
+
+function createRandUniqueNumArray (numItems, min, max){
+    const arrInt = [];
+    while(arrInt.length < numItems){
+        let randNumInt = getRandomNumb(min, max);
+        if(!arrInt.includes(randNumInt)){
+            arrInt.push(randNumInt);
+        }
     }
+    return arrInt;
+}
 
-)
+function getRandomNumb(rangeMin, rangeMax) {
+
+    let result = Math.floor(Math.random() * (rangeMax - rangeMin + 1)) + rangeMin;
+
+    return result;
+
+}
+
+function PariODispari(numeroCheck) {
+
+    if (numeroCheck % 2 === 0) {
+        return "Pari";
+
+    } else {
+        return "Dispari";
+    }
+}
